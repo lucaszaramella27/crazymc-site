@@ -37,7 +37,7 @@ export function Community() {
                     key={point.label}
                     style={{ '--stagger-delay': `${index * 70}ms` } as CSSProperties}
                   >
-                    <Icon className="text-[#8cc8f5]" size={19} strokeWidth={1.7} />
+                    <Icon className="text-[#4f8fc4]" size={19} strokeWidth={1.7} />
                     <div>
                       <p className="text-[10px] font-bold uppercase tracking-[.16em] text-[#71808f]">{point.label}</p>
                       <p className="mt-1 text-sm font-medium text-[#dfeaf2]">{point.value}</p>

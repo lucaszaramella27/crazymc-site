@@ -32,7 +32,7 @@ export function Features() {
                 style={{ '--stagger-delay': `${index * 70}ms` } as CSSProperties}
               >
                 <div className="flex items-center justify-between">
-                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-[#162330] text-[#8cc8f5] transition duration-300 group-hover:bg-[#1d2c38] group-hover:text-[#eaf4fa]">
+                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-[#162330] text-[#4f8fc4] transition duration-300 group-hover:bg-[#1d2c38] group-hover:text-[#eaf4fa]">
                     <Icon aria-hidden="true" size={20} strokeWidth={1.6} />
                   </span>
                   <span className="font-display text-4xl font-bold tracking-[-.08em] text-[#263746]">0{index + 1}</span>

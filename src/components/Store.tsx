@@ -24,7 +24,7 @@ export function Store() {
               style={{ '--stagger-delay': `${index * 70}ms` } as CSSProperties}
             >
               {product.popular && (
-                <span className="absolute -top-px left-1/2 z-10 -translate-x-1/2 -translate-y-full rounded-t-lg bg-[#8cc8f5] px-4 py-1.5 text-[10px] font-bold tracking-[0.15em] text-[#06111b]">
+                <span className="absolute -top-px left-1/2 z-10 -translate-x-1/2 -translate-y-full rounded-t-lg bg-[#4f8fc4] px-4 py-1.5 text-[10px] font-bold tracking-[0.15em] text-[#06111b]">
                   MAIS POPULAR
                 </span>
               )}
@@ -33,7 +33,7 @@ export function Store() {
               <ul className="mt-7 flex flex-1 flex-col gap-4">
                 {product.benefits.map((benefit) => (
                   <li className="flex gap-3 text-sm leading-5 text-[#9aa7b4]" key={benefit}>
-                    <Check aria-hidden="true" className="mt-0.5 shrink-0 text-[#8cc8f5]" size={16} />
+                    <Check aria-hidden="true" className="mt-0.5 shrink-0 text-[#4f8fc4]" size={16} />
                     {benefit}
                   </li>
                 ))}

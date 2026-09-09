@@ -76,7 +76,7 @@ export function Navbar() {
           {navLinks.map((link) => (
             <a
               aria-current={activeSection === link.href.slice(1) ? 'page' : undefined}
-              className={`rounded-xl px-3 py-3 text-sm font-medium transition hover:bg-[#0f1e2c] hover:text-[#eaf4fa] ${activeSection === link.href.slice(1) ? 'bg-[#0f1e2c] text-[#b8d8ee]' : 'text-[#b8c9d6]'}`}
+              className={`rounded-xl px-3 py-3 text-sm font-medium transition hover:bg-[#0f1e2c] hover:text-[#eaf4fa] ${activeSection === link.href.slice(1) ? 'bg-[#0f1e2c] text-[#78afd2]' : 'text-[#b8c9d6]'}`}
               href={link.href}
               key={link.label}
               onClick={closeMenu}

@@ -29,7 +29,7 @@ export function FAQ() {
                   type="button"
                 >
                   <span className="font-display text-base font-bold tracking-[-.02em] text-[#d5e2ec] sm:text-lg">{item.question}</span>
-                  {isOpen ? <ChevronDown className="shrink-0 text-[#8cc8f5]" size={19} /> : <Plus className="shrink-0 text-[#7f91a0]" size={19} />}
+                  {isOpen ? <ChevronDown className="shrink-0 text-[#4f8fc4]" size={19} /> : <Plus className="shrink-0 text-[#7f91a0]" size={19} />}
                 </button>
                 <div
                   className={`grid transition-[grid-template-rows] duration-300 ease-out ${isOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}

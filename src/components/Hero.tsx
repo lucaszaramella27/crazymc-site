@@ -80,7 +80,7 @@ export function Hero() {
       <div className="page-shell relative flex min-h-[calc(88svh-72px)] items-center py-12 sm:min-h-[calc(90svh-72px)] sm:py-16 lg:min-h-[calc(92svh-72px)] lg:py-20">
         <div className="hero-content-motion min-w-0 w-full">
           <div className="w-full max-w-[880px] animate-enter">
-            <div className="eyebrow hero-eyebrow mb-5 w-fit sm:mb-6"><span className="status-dot" /> CRAZY MC <span className="mx-1 text-[#5f9fcc]">•</span> SMP SEMI-ANÁRQUICO</div>
+            <div className="eyebrow hero-eyebrow mb-5 w-fit sm:mb-6"><span className="status-dot" /> CRAZY MC <span className="mx-1 text-[#4f8fc4]">•</span> SMP SEMI-ANÁRQUICO</div>
             <h1 className="max-w-full font-display text-[clamp(1.7rem,8.2vw,2.2rem)] font-semibold leading-[1.03] tracking-[-0.055em] text-[#eaf4fa] sm:text-[clamp(2.75rem,5.8vw,4.5rem)] xl:text-[5.15rem]">
               <span className="sm:hidden">
                 <span className="block">Um mundo</span>

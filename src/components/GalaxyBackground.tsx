@@ -52,7 +52,7 @@ export function GalaxyBackground() {
         alpha: 0.2 + Math.random() * 0.34,
         phase: Math.random() * TAU,
         speed: 0.35 + Math.random() * 0.45,
-        color: Math.random() > 0.3 ? '#eaf4fa' : '#8cc8f5',
+        color: Math.random() > 0.3 ? '#eaf4fa' : '#6fafd8',
         offsetX: 0,
         offsetY: 0,
       };

@@ -26,13 +26,13 @@ export function HowToPlay() {
                 key={step.number}
                 style={{ '--stagger-delay': `${index * 70}ms` } as CSSProperties}
               >
-                <div className="relative z-10 grid h-14 w-14 place-items-center rounded-2xl bg-[#162330] text-[#8cc8f5] shadow-[0_8px_24px_rgba(0,0,0,0.18)] transition duration-300 group-hover:-translate-y-1 group-hover:bg-[#1d2c38] group-hover:text-[#eaf4fa] md:mb-9">
+                <div className="relative z-10 grid h-14 w-14 place-items-center rounded-2xl bg-[#162330] text-[#4f8fc4] shadow-[0_8px_24px_rgba(0,0,0,0.18)] transition duration-300 group-hover:-translate-y-1 group-hover:bg-[#1d2c38] group-hover:text-[#eaf4fa] md:mb-9">
                   <Icon size={21} strokeWidth={1.5} />
                 </div>
                 <div>
                   <p className="font-display text-xs font-bold tracking-[.15em] text-[#6f7e8c]">{step.number}</p>
                   <h3 className="mt-2 font-display text-xl font-bold tracking-[-.03em] text-[#dfeaf2]">{step.title}</h3>
-                  <p className={`mt-2 text-sm ${step.highlight ? 'font-mono text-[#b8d8ee]' : 'leading-6 text-[#8998a7]'}`}>{step.text}</p>
+                  <p className={`mt-2 text-sm ${step.highlight ? 'font-mono text-[#78afd2]' : 'leading-6 text-[#8998a7]'}`}>{step.text}</p>
                 </div>
               </div>
             );
