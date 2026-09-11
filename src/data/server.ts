@@ -4,6 +4,8 @@ const configuredAddress = (
 ).trim();
 
 const configuredDiscordUrl = (import.meta.env.VITE_DISCORD_URL ?? '').trim();
+const configuredTiktokUrl = (import.meta.env.VITE_TIKTOK_URL ?? '').trim();
+const configuredYoutubeUrl = (import.meta.env.VITE_YOUTUBE_URL ?? '').trim();
 
 function validPublicUrl(value: string, fallback: string) {
   if (!value) return fallback;
@@ -20,6 +22,8 @@ export const serverInfo = {
   ip: configuredAddress || 'crazymc.bed.net.br',
   mode: 'Semi-Anarquia',
   discordUrl: validPublicUrl(configuredDiscordUrl, 'https://discord.gg/crazymc'),
+  tiktokUrl: validPublicUrl(configuredTiktokUrl, ''),
+  youtubeUrl: validPublicUrl(configuredYoutubeUrl, ''),
 };
 
 export type MinecraftEdition = 'java' | 'bedrock';

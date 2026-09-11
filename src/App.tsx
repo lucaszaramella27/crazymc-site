@@ -2,7 +2,6 @@ import { lazy } from 'react';
 import { Route, Routes } from 'react-router';
 import { SiteLayout } from './components/SiteLayout';
 
-const CommunityPage = lazy(() => import('./pages/CommunityPage').then((module) => ({ default: module.CommunityPage })));
 const FaqPage = lazy(() => import('./pages/FaqPage').then((module) => ({ default: module.FaqPage })));
 const HomePage = lazy(() => import('./pages/HomePage').then((module) => ({ default: module.HomePage })));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage').then((module) => ({ default: module.NotFoundPage })));
@@ -20,7 +19,6 @@ export default function App() {
         <Route index element={<HomePage />} />
         <Route path="servidor" element={<ServerPage />} />
         <Route path="loja" element={<StorePage />} />
-        <Route path="comunidade" element={<CommunityPage />} />
         <Route path="regras" element={<RulesPage />} />
         <Route path="faq" element={<FaqPage />} />
         <Route path="status" element={<StatusPage />} />

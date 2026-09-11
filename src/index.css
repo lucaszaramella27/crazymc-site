@@ -68,6 +68,17 @@
   .header-discord { min-height: 2.7rem; gap: .5rem; padding: .66rem 1.05rem; border: 0; border-radius: .8rem; background: var(--color-discord); color: #fff; box-shadow: 0 8px 24px rgb(88 101 242 / .2); font-size: .65rem; letter-spacing: .1em; }
   .header-discord:hover { background: #6875f5; color: #fff; box-shadow: 0 10px 28px rgb(88 101 242 / .3); }
   .header-discord:focus-visible { outline: none; background: #6875f5; }
+  .header-brand { display: inline-flex; min-height: 3.05rem; align-items: center; line-height: 1; }
+  .header-brand > div, .header-brand span { line-height: 1; }
+  .footer-brand-group { display: flex; flex-wrap: wrap; align-items: center; gap: 1.15rem; }
+  .footer-socials { display: flex; align-items: center; gap: .45rem; }
+  .footer-social-link { display: grid; width: 2.35rem; height: 2.35rem; place-items: center; border-radius: .8rem; background: var(--color-surface-raised); color: var(--color-muted); box-shadow: 0 8px 22px rgb(0 0 0 / .18); transition: background-color .2s ease, color .2s ease, transform .2s ease, box-shadow .2s ease, filter .2s ease; }
+  .footer-social-link:not(.is-disabled):hover { color: #fff; transform: translateY(-2px); }
+  .footer-social-link:focus-visible { outline: 2px solid var(--color-ink); outline-offset: 3px; }
+  .footer-social-discord:not(.is-disabled):hover { background: var(--color-discord); box-shadow: 0 10px 26px rgb(88 101 242 / .25); }
+  .footer-social-youtube:not(.is-disabled):hover { background: #ff0033; box-shadow: 0 10px 26px rgb(255 0 51 / .2); }
+  .footer-social-tiktok:not(.is-disabled):hover { background: #181818; filter: drop-shadow(2px 0 0 rgb(37 244 238 / .72)) drop-shadow(-2px 0 0 rgb(254 44 85 / .72)); }
+  .footer-social-link.is-disabled { opacity: .42; cursor: default; }
   .button-outline:focus-visible { outline: 2px solid var(--color-brand-light); outline-offset: 4px; }
   .nav-group { gap: .15rem; padding: .3rem; border-radius: 999px; background: rgb(13 18 15 / .78); box-shadow: 0 10px 30px rgb(0 0 0 / .16); backdrop-filter: blur(12px); }
   .nav-link { position: relative; display: inline-flex; min-height: 2.45rem; align-items: center; justify-content: center; padding: .55rem .88rem; border: 0; border-radius: 999px; background: transparent; font-size: .77rem; font-weight: 650; color: var(--color-ink-soft); transition: background-color .2s ease, color .2s ease, transform .2s ease; }
@@ -185,7 +196,176 @@
 @media (max-width: 639px) { .page-shell { width: min(100% - 2rem, 76rem); } }
 @media (max-width: 639px) { .copy-toast { right: 1rem; bottom: 1rem; left: 1rem; } }
 @media (min-width: 640px) { .hero-art { object-position: center; } }
+@media (min-width: 1024px) { .site-nav { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); } .header-brand { justify-self: start; } .header-discord { justify-self: end; } }
 @media (min-width: 900px) { .portal-intro { grid-template-columns: minmax(0, 1fr) minmax(17rem, .55fr); } }
 @media (max-width: 899px) { .grass-hologram { margin-top: 1rem; } }
 @media (max-width: 639px) { .hologram-control { width: 15rem; height: 14rem; transform: scale(.88); } .grass-hologram { margin-block: -.5rem -1.5rem; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } .scroll-reveal, .stagger-item, .section-title-effect { clip-path: none !important; opacity: 1; transform: none; } }
+/* -------------------------------------------------------------------------- */
+/*                                CONTAINER                                   */
+/* -------------------------------------------------------------------------- */
+
+.grass-hologram {
+  position: relative;
+
+  width: min(125px, 42vw);
+  aspect-ratio: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /*
+   * Importante:
+   * deixa o canvas maior aparecer.
+   */
+  overflow: visible;
+}
+
+.hologram-stage {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: visible;
+
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                             ÁREA DO CANVAS                                 */
+/* -------------------------------------------------------------------------- */
+
+.hologram-canvas-area {
+  position: absolute;
+
+  /*
+   * Canvas fica maior que o container original.
+   *
+   * Isso dá espaço para o cubo girar/flutuar
+   * sem ser cortado.
+   */
+  width: 150%;
+  height: 150%;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  overflow: visible;
+
+  pointer-events: none;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                  CANVAS                                    */
+/* -------------------------------------------------------------------------- */
+
+.hologram-canvas {
+  display: block !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  background: transparent !important;
+
+  border: none !important;
+  outline: none !important;
+
+  box-shadow: none !important;
+
+  filter: none !important;
+
+  pointer-events: none !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                            HITBOX INVISÍVEL                                */
+/* -------------------------------------------------------------------------- */
+
+.block-hitbox {
+  position: absolute;
+
+  /*
+   * Hitbox só em volta do bloco.
+   * Ela NÃO cobre o Canvas inteiro.
+   */
+  top: 50%;
+  left: 50%;
+
+  width: 58%;
+  height: 58%;
+
+  transform: translate(-50%, -50%);
+
+  z-index: 10;
+
+  padding: 0;
+  margin: 0;
+
+  background: transparent;
+
+  border: 0;
+  outline: 0;
+
+  box-shadow: none;
+
+  appearance: none;
+  -webkit-appearance: none;
+
+  cursor: grab;
+
+  touch-action: none;
+
+  /*
+   * Não deixa selecionar nada durante o drag.
+   */
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.block-hitbox.is-dragging {
+  cursor: grabbing;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                        REMOVE CSS ANTIGO                                   */
+/* -------------------------------------------------------------------------- */
+
+/*
+ * Caso ainda tenha algum CSS antigo carregado,
+ * isso garante que nada apareça.
+ */
+
+.hologram-aura,
+.hologram-platform,
+.hologram-platform-core,
+.hologram-block-scan {
+  display: none !important;
+
+  background: none !important;
+
+  border: none !important;
+
+  box-shadow: none !important;
+
+  filter: none !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                 MOBILE                                     */
+/* -------------------------------------------------------------------------- */
+
+@media (max-width: 900px) {
+  .grass-hologram {
+    width: min(430px, 90vw);
+  }
+
+  .block-hitbox {
+    width: 66%;
+    height: 66%;
+  }
+}

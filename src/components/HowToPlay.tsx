@@ -12,7 +12,7 @@ export function HowToPlay() {
   return (
     <section className="section-space" id="como-jogar">
       <div className="page-shell relative">
-        <div className="relative ml-auto max-w-xl lg:text-right">
+        <div className="relative ml-auto max-w-x1 lg:text-right">
           <p className="eyebrow lg:justify-end">COMECE AGORA</p>
           <h2 className="section-title section-title-effect section-title-right mt-5">COMO <span className="text-ink-soft">JOGAR</span></h2>
           <p className="mt-5 leading-7 text-muted">Três passos rápidos separam você do seu primeiro bloco na Crazy MC.</p>

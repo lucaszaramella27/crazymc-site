@@ -9,7 +9,6 @@ const navLinks = [
   { label: 'Início', to: '/' },
   { label: 'Servidor', to: '/servidor' },
   { label: 'Loja', to: '/loja' },
-  { label: 'Comunidade', to: '/comunidade' },
   { label: 'Regras', to: '/regras' },
   { label: 'FAQ', to: '/faq' },
   { label: 'Status', to: '/status' },
@@ -33,8 +32,8 @@ export function Navbar() {
 
   return (
     <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${hasScrolled ? 'bg-canvas/90 shadow-[0_12px_38px_rgba(0,0,0,0.24)] backdrop-blur-xl' : 'bg-transparent'}`}>
-      <nav aria-label="Navegação principal" className="page-shell flex h-[72px] items-center justify-between">
-        <Link aria-label="Crazy MC — início" onClick={closeMenu} to="/"><Logo /></Link>
+      <nav aria-label="Navegação principal" className="site-nav page-shell flex h-[72px] items-center justify-between">
+        <Link aria-label="Crazy MC — início" className="header-brand" onClick={closeMenu} to="/"><Logo /></Link>
         <div className="nav-group hidden items-center lg:flex">
           {navLinks.map((link) => (
             <NavLink

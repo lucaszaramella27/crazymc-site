@@ -9,7 +9,6 @@ const pageMetadata: Record<string, { description: string; title: string }> = {
   '/': { title: 'Crazy MC — Servidor Minecraft', description: 'Crazy MC é um servidor Minecraft semi-anárquico focado em liberdade, alianças e histórias criadas pelos jogadores.' },
   '/servidor': { title: 'Servidor — Crazy MC', description: 'Conheça o gameplay, os recursos e como entrar no servidor Minecraft Crazy MC.' },
   '/loja': { title: 'Loja — Crazy MC', description: 'Conheça os planos oficiais para apoiar o servidor Crazy MC.' },
-  '/comunidade': { title: 'Comunidade — Crazy MC', description: 'Entre na comunidade oficial da Crazy MC e acompanhe anúncios, eventos e suporte.' },
   '/regras': { title: 'Regras — Crazy MC', description: 'Consulte os princípios essenciais para jogar e participar da comunidade Crazy MC.' },
   '/faq': { title: 'FAQ — Crazy MC', description: 'Respostas para as dúvidas mais comuns sobre o servidor Crazy MC.' },
   '/status': { title: 'Status — Crazy MC', description: 'Veja a disponibilidade, versão e jogadores conectados na Crazy MC em tempo real.' },
