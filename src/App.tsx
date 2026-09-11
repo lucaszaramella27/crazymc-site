@@ -1,37 +1,33 @@
-import { Community } from './components/Community';
-import { CTA } from './components/CTA';
-import { FAQ } from './components/FAQ';
-import { Features } from './components/Features';
-import { Footer } from './components/Footer';
-import { GalaxyBackground } from './components/GalaxyBackground';
-import { GameplayShowcase } from './components/GameplayShowcase';
-import { Hero } from './components/Hero';
-import { HowToPlay } from './components/HowToPlay';
-import { InteractiveMotion } from './components/InteractiveMotion';
-import { Navbar } from './components/Navbar';
-import { Reveal } from './components/Reveal';
-import { ServerStats } from './components/ServerStats';
-import { Store } from './components/Store';
+import { lazy } from 'react';
+import { Route, Routes } from 'react-router';
+import { SiteLayout } from './components/SiteLayout';
+
+const CommunityPage = lazy(() => import('./pages/CommunityPage').then((module) => ({ default: module.CommunityPage })));
+const FaqPage = lazy(() => import('./pages/FaqPage').then((module) => ({ default: module.FaqPage })));
+const HomePage = lazy(() => import('./pages/HomePage').then((module) => ({ default: module.HomePage })));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage').then((module) => ({ default: module.NotFoundPage })));
+const PrivacyPage = lazy(() => import('./pages/LegalPage').then((module) => ({ default: module.PrivacyPage })));
+const RulesPage = lazy(() => import('./pages/RulesPage').then((module) => ({ default: module.RulesPage })));
+const ServerPage = lazy(() => import('./pages/ServerPage').then((module) => ({ default: module.ServerPage })));
+const StatusPage = lazy(() => import('./pages/StatusPage').then((module) => ({ default: module.StatusPage })));
+const StorePage = lazy(() => import('./pages/StorePage').then((module) => ({ default: module.StorePage })));
+const TermsPage = lazy(() => import('./pages/LegalPage').then((module) => ({ default: module.TermsPage })));
 
 export default function App() {
   return (
-    <div className="relative isolate min-h-screen overflow-x-clip bg-[#050b13] text-[#eaf4fa]">
-      <GalaxyBackground />
-      <InteractiveMotion />
-      <Navbar />
-      <main>
-        <Hero />
-        <div aria-hidden="true" className="hero-divider" />
-        <Reveal><ServerStats /></Reveal>
-        <Reveal><Features /></Reveal>
-        <Reveal><GameplayShowcase /></Reveal>
-        <Reveal><Store /></Reveal>
-        <Reveal><Community /></Reveal>
-        <Reveal><HowToPlay /></Reveal>
-        <Reveal><FAQ /></Reveal>
-        <Reveal><CTA /></Reveal>
-      </main>
-      <Reveal><Footer /></Reveal>
-    </div>
+    <Routes>
+      <Route element={<SiteLayout />}>
+        <Route index element={<HomePage />} />
+        <Route path="servidor" element={<ServerPage />} />
+        <Route path="loja" element={<StorePage />} />
+        <Route path="comunidade" element={<CommunityPage />} />
+        <Route path="regras" element={<RulesPage />} />
+        <Route path="faq" element={<FaqPage />} />
+        <Route path="status" element={<StatusPage />} />
+        <Route path="termos" element={<TermsPage />} />
+        <Route path="privacidade" element={<PrivacyPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Route>
+    </Routes>
   );
 }

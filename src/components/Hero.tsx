@@ -2,9 +2,7 @@ import { Users } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 import { CopyIpButton } from './CopyIpButton';
 import { useServerStatus } from '../context/ServerStatusContext';
-import heroBackground from '../assets/crazy-mc-hero-night.jpg';
-import heroBackgroundFullHd from '../assets/crazy-mc-hero-night-1920.jpg';
-import heroBackgroundQhd from '../assets/crazy-mc-hero-night-2560.jpg';
+import heroBackground from '../assets/crazy-mc-hero-buzzy-bees.png';
 
 export function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -70,9 +68,7 @@ export function Hero() {
           decoding="async"
           fetchPriority="high"
           loading="eager"
-          sizes="100vw"
           src={heroBackground}
-          srcSet={`${heroBackgroundFullHd} 1920w, ${heroBackgroundQhd} 2560w`}
         />
       </div>
       <div aria-hidden="true" className="hero-image-shade absolute inset-0 -z-10" />
@@ -80,8 +76,8 @@ export function Hero() {
       <div className="page-shell relative flex min-h-[calc(88svh-72px)] items-center py-12 sm:min-h-[calc(90svh-72px)] sm:py-16 lg:min-h-[calc(92svh-72px)] lg:py-20">
         <div className="hero-content-motion min-w-0 w-full">
           <div className="w-full max-w-[880px] animate-enter">
-            <div className="eyebrow hero-eyebrow mb-5 w-fit sm:mb-6"><span className="status-dot" /> CRAZY MC <span className="mx-1 text-[#4f8fc4]">•</span> SMP SEMI-ANÁRQUICO</div>
-            <h1 className="max-w-full font-display text-[clamp(1.7rem,8.2vw,2.2rem)] font-semibold leading-[1.03] tracking-[-0.055em] text-[#eaf4fa] sm:text-[clamp(2.75rem,5.8vw,4.5rem)] xl:text-[5.15rem]">
+            <div className="eyebrow hero-eyebrow mb-5 w-fit sm:mb-6"><span className="status-dot" /> CRAZY MC <span className="mx-1 text-brand">•</span> SMP SEMI-ANÁRQUICO</div>
+            <h1 className="max-w-full font-display text-[clamp(1.7rem,8.2vw,2.2rem)] font-semibold leading-[1.03] tracking-[-0.055em] text-ink sm:text-[clamp(2.75rem,5.8vw,4.5rem)] xl:text-[5.15rem]">
               <span className="sm:hidden">
                 <span className="block">Um mundo</span>
                 <span className="block">sem dono.</span>
@@ -89,13 +85,13 @@ export function Hero() {
               </span>
               <span className="hidden sm:inline">Um mundo sem dono.<br />Até <span className="hero-title-accent">você</span> chegar.</span>
             </h1>
-            <p className="mt-6 max-w-full text-base leading-7 text-[#9aa9b8] sm:max-w-xl sm:text-lg">Erga seu império, crie alianças e sobreviva em um mundo onde poder se conquista — bloco por bloco.</p>
+            <p className="mt-6 max-w-full text-base leading-7 text-muted sm:max-w-xl sm:text-lg">Erga seu império, crie alianças e sobreviva em um mundo onde poder se conquista — bloco por bloco.</p>
             <div className="mt-7 flex sm:mt-8"><CopyIpButton variant="hero" /></div>
-            <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm sm:mt-8"><div className="flex items-center gap-2 font-medium text-[#d5e2ec]"><span className={`status-dot ${serverStatus.online === false ? 'status-dot-offline' : serverStatus.online === null ? 'status-dot-unavailable' : ''}`} /> {statusLabel}</div><span className="hidden h-4 w-px bg-[#2b4052] sm:block" /><span className="flex items-center gap-2 text-[#9aa9b8]"><Users size={15} aria-hidden="true" /> {playersLabel}</span></div>
+            <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm sm:mt-8"><div className="flex items-center gap-2 font-medium text-ink-soft"><span className={`status-dot ${serverStatus.online === false ? 'status-dot-offline' : serverStatus.online === null ? 'status-dot-unavailable' : ''}`} /> {statusLabel}</div><span className="hidden h-4 w-px bg-edge sm:block" /><span className="flex items-center gap-2 text-muted"><Users size={15} aria-hidden="true" /> {playersLabel}</span></div>
           </div>
         </div>
       </div>
-      <a aria-label="Rolar para conhecer o servidor" className="scroll-cue" href="#servidor">
+      <a aria-label="Rolar para explorar o portal" className="scroll-cue" href="#explorar">
         <span aria-hidden="true" className="scroll-mouse">
           <span className="scroll-wheel" />
         </span>

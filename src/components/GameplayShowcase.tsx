@@ -37,7 +37,7 @@ export function GameplayShowcase() {
             <p className="eyebrow">DENTRO DA CRAZY MC</p>
             <h2 className="section-title section-title-effect mt-5">ENTRE NO MUNDO.<br />DEIXE SUA MARCA.</h2>
           </div>
-          <p className="relative max-w-lg text-base leading-7 text-[#9aa9b8] sm:text-lg">
+          <p className="relative max-w-lg text-base leading-7 text-muted sm:text-lg">
             Cada área conta uma história diferente. Explore, dispute território e transforme o servidor junto com a comunidade.
           </p>
         </div>

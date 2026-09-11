@@ -6,7 +6,7 @@ import {
   useState,
   type ReactNode,
 } from 'react';
-import { serverConnection, serverInfo } from '../data/server';
+import { serverConnection } from '../data/server';
 
 type ApiResponse = {
   online?: boolean;
@@ -37,10 +37,10 @@ const REFRESH_INTERVAL_MS = 60_000;
 const initialStatus: ServerStatus = {
   configured: serverConnection.enabled,
   loading: serverConnection.enabled,
-  online: serverConnection.enabled ? null : true,
-  onlinePlayers: serverConnection.enabled ? null : serverInfo.onlinePlayers,
-  maxPlayers: serverConnection.enabled ? null : serverInfo.maxPlayers,
-  version: serverConnection.enabled ? null : serverInfo.version,
+  online: null,
+  onlinePlayers: null,
+  maxPlayers: null,
+  version: null,
   lastUpdated: null,
   error: null,
 };
@@ -59,6 +59,11 @@ export function ServerStatusProvider({ children }: { children: ReactNode }) {
     const loadStatus = async () => {
       controller?.abort();
       controller = new AbortController();
+      let didTimeout = false;
+      const timeoutId = window.setTimeout(() => {
+        didTimeout = true;
+        controller?.abort();
+      }, 8_000);
 
       try {
         const address = encodeURIComponent(serverConnection.address);
@@ -85,14 +90,20 @@ export function ServerStatusProvider({ children }: { children: ReactNode }) {
           error: null,
         });
       } catch (error) {
-        if (disposed || (error instanceof DOMException && error.name === 'AbortError')) return;
+        if (disposed || (!didTimeout && error instanceof DOMException && error.name === 'AbortError')) return;
 
         setStatus((current) => ({
           ...current,
           loading: false,
           online: current.lastUpdated ? current.online : null,
-          error: error instanceof Error ? error.message : 'Não foi possível consultar o servidor',
+          error: didTimeout
+            ? 'A consulta do servidor excedeu o tempo limite'
+            : error instanceof Error
+              ? error.message
+              : 'Não foi possível consultar o servidor',
         }));
+      } finally {
+        window.clearTimeout(timeoutId);
       }
     };
 

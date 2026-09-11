@@ -3,11 +3,17 @@ import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
+  appType: 'spa',
   plugins: [react(), tailwindcss()],
+  build: {
+    sourcemap: false,
+  },
   server: {
-    allowedHosts: ['.ngrok-free.app', '.ngrok-free.dev', '.ngrok.io'],
+    allowedHosts: ['delegate-hurry-decal.ngrok-free.dev'],
+    strictPort: true,
   },
   preview: {
-    allowedHosts: ['.ngrok-free.app', '.ngrok-free.dev', '.ngrok.io'],
+    allowedHosts: ['delegate-hurry-decal.ngrok-free.dev'],
+    strictPort: true,
   },
 });

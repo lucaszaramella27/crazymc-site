@@ -1,17 +1,25 @@
 const configuredAddress = (
   import.meta.env.VITE_MINECRAFT_SERVER_ADDRESS
-  ?? import.meta.env.VITE_MINECRAFT_SERVER
   ?? ''
 ).trim();
 
+const configuredDiscordUrl = (import.meta.env.VITE_DISCORD_URL ?? '').trim();
+
+function validPublicUrl(value: string, fallback: string) {
+  if (!value) return fallback;
+
+  try {
+    const url = new URL(value);
+    return url.protocol === 'https:' ? url.toString() : fallback;
+  } catch {
+    return fallback;
+  }
+}
+
 export const serverInfo = {
-  ip: configuredAddress || 'play.crazymc.com',
-  onlinePlayers: 128,
-  maxPlayers: 500,
-  version: '1.21.x',
+  ip: configuredAddress || 'crazymc.bed.net.br',
   mode: 'Semi-Anarquia',
-  uptime: '99.9%',
-  discordUrl: 'https://discord.gg/crazymc',
+  discordUrl: validPublicUrl(configuredDiscordUrl, 'https://discord.gg/crazymc'),
 };
 
 export type MinecraftEdition = 'java' | 'bedrock';
@@ -21,7 +29,7 @@ export const serverConnection = {
   edition: import.meta.env.VITE_MINECRAFT_EDITION?.toLowerCase() === 'bedrock'
     ? 'bedrock'
     : 'java',
-  enabled: configuredAddress.length > 0,
+  enabled: serverInfo.ip.length > 0,
 } satisfies {
   address: string;
   edition: MinecraftEdition;

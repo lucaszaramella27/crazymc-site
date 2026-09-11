@@ -14,8 +14,8 @@ export function HowToPlay() {
       <div className="page-shell relative">
         <div className="relative ml-auto max-w-xl lg:text-right">
           <p className="eyebrow lg:justify-end">COMECE AGORA</p>
-          <h2 className="section-title section-title-effect section-title-right mt-5">COMO <span className="text-[#d7e1ea]">JOGAR</span></h2>
-          <p className="mt-5 leading-7 text-[#8998a7]">Três passos rápidos separam você do seu primeiro bloco na Crazy MC.</p>
+          <h2 className="section-title section-title-effect section-title-right mt-5">COMO <span className="text-ink-soft">JOGAR</span></h2>
+          <p className="mt-5 leading-7 text-muted">Três passos rápidos separam você do seu primeiro bloco na Crazy MC.</p>
         </div>
         <div className="relative mt-12 grid gap-7 md:grid-cols-3 md:gap-10">
           {steps.map((step, index) => {
@@ -26,13 +26,13 @@ export function HowToPlay() {
                 key={step.number}
                 style={{ '--stagger-delay': `${index * 70}ms` } as CSSProperties}
               >
-                <div className="relative z-10 grid h-14 w-14 place-items-center rounded-2xl bg-[#162330] text-[#4f8fc4] shadow-[0_8px_24px_rgba(0,0,0,0.18)] transition duration-300 group-hover:-translate-y-1 group-hover:bg-[#1d2c38] group-hover:text-[#eaf4fa] md:mb-9">
+                <div className="relative z-10 grid h-14 w-14 place-items-center rounded-2xl bg-surface-raised text-brand shadow-[0_8px_24px_rgba(0,0,0,0.18)] transition duration-300 group-hover:-translate-y-1 group-hover:bg-[#263527] group-hover:text-ink md:mb-9">
                   <Icon size={21} strokeWidth={1.5} />
                 </div>
                 <div>
-                  <p className="font-display text-xs font-bold tracking-[.15em] text-[#6f7e8c]">{step.number}</p>
-                  <h3 className="mt-2 font-display text-xl font-bold tracking-[-.03em] text-[#dfeaf2]">{step.title}</h3>
-                  <p className={`mt-2 text-sm ${step.highlight ? 'font-mono text-[#78afd2]' : 'leading-6 text-[#8998a7]'}`}>{step.text}</p>
+                  <p className="font-display text-xs font-bold tracking-[.15em] text-muted-dark">{step.number}</p>
+                  <h3 className="mt-2 font-display text-xl font-bold tracking-[-.03em] text-ink-soft">{step.title}</h3>
+                  <p className={`mt-2 text-sm ${step.highlight ? 'font-mono text-brand-light' : 'leading-6 text-muted'}`}>{step.text}</p>
                 </div>
               </div>
             );

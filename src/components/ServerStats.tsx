@@ -73,7 +73,12 @@ export function ServerStats() {
       ? 'Online'
       : serverStatus.online === false
         ? 'Offline'
-        : 'Indisponível';
+      : 'Indisponível';
+  const updateValue = serverStatus.lastUpdated
+    ? serverStatus.lastUpdated.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })
+    : serverStatus.loading
+      ? 'Consultando...'
+      : '—';
 
   const serverStats = [
     {
@@ -87,7 +92,7 @@ export function ServerStats() {
     },
     { label: 'Versão', value: serverStatus.version ?? '—' },
     { label: 'Modo', value: serverInfo.mode },
-    { label: 'Uptime', value: serverInfo.uptime },
+    { label: 'Atualizado', value: updateValue },
   ];
 
   return (
@@ -100,14 +105,14 @@ export function ServerStats() {
             key={stat.label}
             style={{ '--stagger-delay': `${index * 70}ms` } as CSSProperties}
           >
-            <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#71808f]">{stat.label}</p>
-            <p className={`mt-2 text-sm font-medium sm:text-base ${stat.status ? 'flex items-center gap-2 text-[#d5e2ec]' : 'text-[#dfeaf2]'}`}>
+            <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-muted-dark">{stat.label}</p>
+            <p className={`mt-2 text-sm font-medium sm:text-base ${stat.status ? 'flex items-center gap-2 text-ink-soft' : 'text-ink-soft'}`}>
               {stat.status && <span className={`status-dot ${stat.status === 'offline' ? 'status-dot-offline' : stat.status === 'unavailable' ? 'status-dot-unavailable' : ''}`} />}
-              <AnimatedStatValue animate={stat.label === 'Jogadores' || stat.label === 'Uptime'} value={stat.value} />
+              <AnimatedStatValue animate={stat.label === 'Jogadores'} value={stat.value} />
             </p>
           </div>
         ))}
       </div>
     </section>
   );
-}
+} 
